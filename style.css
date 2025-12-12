@@ -1,70 +1,186 @@
-body{
-    background-color:rgb(156, 153, 193);
-    margin:auto;
-    padding: 0;
-    font-family:'Courier New', Courier, monospace;
-}
-
-header{
-    background-color:rgb(224 ,206, 209);
-    height: 100px; 
-}
-
-h1{
-    float: left;
-    margin-left: 20px;
-    margin-right:20px;
-    color:red;
-    text-shadow: 5px 5px  5px white;
-}
-nav li{
-    display: inline-block;
-    margin-top: 30px;
-    margin-right: 20px;
-}
-
-ul{
-    padding: 0;
+/* --- Global Reset and Setup --- */
+* {
+    box-sizing: border-box; 
     margin: 0;
+    padding: 0;
 }
 
-nav li a{
-    color: darkgreen;
+body {
+    /* Full Screen Width */
+    font-family: 'Inter', sans-serif; 
+    background-color: #F7F4F0; 
+    margin: 0; 
+    padding: 0; 
+    min-height: 100vh;
+    color: #333333; 
+}
+
+a {
     text-decoration: none;
-    font-size: 20px;
-    font-weight: 600;
-    cursor: pointer;
+    color: #333333;
+    transition: color 0.3s; 
 }
 
-main{
-    width: 960px;
-    margin: 30px auto; 
-    min-height: 700px;
+ul {
+    list-style: none;
 }
 
-#hero{
-    width: 960px;
-    height: 600px;
-    border: 10px solid black;
+/* --- 1. Header & Navigation (Left-Offset Layout) --- */
+
+.main-header {
+    display: flex; 
+    /* Centers the overall Flex content, but we override logo position below */
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px 10px;
+    border-bottom: 1px solid #E0DEDC; 
+    position: relative; 
 }
 
-#hero:hover{
-    border: 10px solid blue;
+/* New style to align the brand name and new logo */
+.brand-name {
+    font-size: 2em; 
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 700;
+    color: #8B4513; 
+    white-space: nowrap; 
+    margin-left: 10px; 
 }
 
-
-main p{
-    font-size: 20px;
-    margin-top: 30px;
+/* NEW: Logo Image Styling */
+.header-logo {
+    height: 30px; /* Adjust size of logo icon */
+    width: 30px;
+    margin-right: auto; /* Pushes the logo away from the brand name and towards the center */
 }
 
-footer{
-    height: 100px;
+/* Navigation is on the right */
+.main-nav {
+    position: absolute;
+    right: 50px; 
+    top: 50%;
+    transform: translateY(-50%);
+    display: block; 
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 15px; 
+    font-size: 0.9em;
+}
+
+.cart-icon {
+    position: absolute;
+    right: 10px; 
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.6em; 
+    padding-left: 0;
+}
+
+/* --- 2. Hero Section (Large Text & Solid Blue Button) --- */
+
+.hero-section {
+    padding: 50px 15px 90px;
+}
+
+.hero-title {
+    font-family: 'Poppins', sans-serif; 
+    font-size: 3em;
+    line-height: 1;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Solid Blue Button Style */
+.shop-now-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    
+    border: 2px solid #1e90ff; 
+    background-color: #1e90ff; 
+    color: #F7F4F0; 
+    
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    cursor: pointer; 
+}
+
+/* Hover state: Invert colors for visual feedback */
+.shop-now-btn:hover {
+    background-color: transparent; 
+    border-color: #1e90ff; 
+    color: #1e90ff; 
+}
+
+/* --- 3. Product & Category Sections (Grid Layout) --- */
+
+.section-title {
+    font-family: 'Poppins', sans-serif; 
     text-align: center;
-    background-color: rgb(224, 206, 209);
+    margin: 40px 0 30px;
+    font-size: 1.6em;
+    font-weight: 600;
+    text-transform: capitalize;
 }
 
-footer p{
-    padding-top: 50px;
-    font-family:'Courier New', Courier, monospace;
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px; 
+    padding: 0 15px;
+    text-align: center;
+}
+
+.product-item {
+    padding: 15px 5px;
+    border-radius: 8px;
+    background-color: #FFFFFF; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); 
+    transition: transform 0.3s;
+    height: auto; 
+}
+
+.product-item:hover {
+    transform: translateY(-3px); 
+}
+
+.product-item figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-item figcaption {
+    margin-top: 5px;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+/* NEW: Image Styling for Product Boxes */
+.product-image {
+    width: 100%;
+    /* Ensures the image fills the space but keeps a square ratio for consistency */
+    max-width: 90px; 
+    height: 90px;
+    object-fit: cover; /* Crops the image to fit the square nicely */
+    border: 2px solid #8B4513; /* Solid border kept as requested */
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* --- Footer Styling (Including Padding) --- */
+
+footer {
+    text-align: center;
+    padding: 20px 0; 
+    border-top: 1px solid #E0DEDC; 
+    font-size: 0.8em;
+    color: #A0522D; 
+}
+
+footer p {
+    margin: 0; 
 }
