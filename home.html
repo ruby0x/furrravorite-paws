@@ -34,9 +34,9 @@
     <main>
         
     <div class="cohort-link">
-            <a href="https://erojascornejo10-tech.github.io/the-boxing-zone/boxing.html" target="_blank">
-                 &lt;--- Check out my fellow student's awesome work! ---&gt;
-            </a>
+        <a href="https://erojascornejo10-tech.github.io/the-boxing-zone/boxing.html" target="_blank">
+            <--- Check out my fellow student's awesome work! --->
+        </a>
     </div>
         
         <div class="hero-flex-container"> 
@@ -48,18 +48,32 @@
                 </section>
 
             <div id="subscription-form-container" class="form-hidden"> 
-                
+    
                 <h3>Subscribe to Furrravorite Paws Newsletter</h3>
                 <p>Enter your email below for your free gift!</p>
 
-                <div class="email-input-group">
-                    <input type="email" id="email-input" placeholder="Your Email Address" required>
-                    <button id="subscribe-btn">Subscribe</button>
-                </div>
+                <form id="subscribe-form">
+                    <div class="email-input-group">
+                        <input type="email"
+                               id="userEmail"
+                               name="email"
+                               placeholder="Your Email Address"
+                               required
+                               pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                               title="Please enter a valid email format: user@domain.com"
+                        >
+                        <button id="subscribe-btn" type="submit">Subscribe</button>
+                    </div>
+                    
+                    <span id="emailError" class="error-message"></span> 
+                </form>
 
                 <p id="sub-message-output"></p>
                 
-            </div> </div> <section class="product-section">
+            </div>
+            </div> 
+        
+        <section class="product-section">
             <h2 class="section-title">Best Sellers</h2>
             <div class="product-list">
                 

@@ -187,7 +187,9 @@ ul {
     margin-top: 15px;
 }
 
-#email-input {
+/* 🎯 REMOVED: #email-input selector (since ID is now #userEmail) */
+/* ADDED: General styling for the new #userEmail input */
+#userEmail { /* Changed from #email-input to #userEmail */
     flex-grow: 1;
     padding: 10px;
     border: 1px solid #ccc;
@@ -210,6 +212,15 @@ ul {
     background-color: #0d70da;
 }
 
+/* NEW: Style for the custom error message span */
+.error-message {
+    display: block; /* Ensures it sits on its own line */
+    font-size: 0.85em;
+    color: red; /* Default to red, though JS handles color */
+    margin-top: 5px;
+    min-height: 1em; /* Ensures element doesn't collapse when empty */
+}
+
 /* HIDES THE FORM AND SETS UP THE TRANSITION */
 .form-hidden {
     opacity: 0; 
@@ -230,7 +241,7 @@ ul {
 
 
 /* --- 3. Product & Category Sections (Grid Layout) --- */
-
+/* (Rest of the product and footer CSS remains unchanged) */
 .section-title {
     font-family: 'Poppins', sans-serif; 
     text-align: center;
