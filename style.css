@@ -72,15 +72,16 @@ ul {
 }
 
 .main-nav ul {
-    display: flex;                   /* Lays out the navigation links in a horizontal row. */
-    gap: 1.5vw;                      /* Adds responsive spacing between each link. */
-    font-size: 1.2vw;                /* Font size scales based on screen width. */
+    display: flex;
+    gap: 1.5vw;
+    font-size: 1rem; /* CHANGED from 1.2vw to 1rem */
 }
 
 .cart-icon {
-    font-size: 2.2em;                /* Makes the cart icon large and prominent. */
-    margin-left: 4vw;                /* Adds responsive space to the left of the cart. */
-    padding-left: 0;                 /* Ensures no extra internal space on the left. */
+    font-size: 1.8rem;  /* Slightly smaller than before */
+    margin-left: 15px; 
+    flex-shrink: 0;     /* 🧠 LOGIC: This tells the browser "Never squish the cart!" */
+    padding-right: 10px; /* Adds a safety "buffer" from the screen edge */
 }
 
 /* --- Centered Banner Link Style --- */
@@ -284,33 +285,75 @@ footer p {
 
 /* --- Media Query for Smaller Screens --- */
 
+/* --- Media Query for Smaller Screens --- */
 @media screen and (max-width: 768px) {
+    
+    /* 1. Header Logic: Stack items and fix spacing */
+    .main-header {
+        flex-direction: column; 
+        gap: 15px;
+        padding: 20px 10px;
+        text-align: center;
+    }
+
+    /* 2. Brand/Logo: Use stable sizes instead of vw */
     .brand-name {
-        font-size: 1.5em;            /* Shrinks the brand name on mobile. */
+        font-size: 1.8rem; 
     }
-    
+
+    /* 3. Navigation: Fix the name from .navbar to .main-nav */
+    .main-nav {
+        margin: 0; 
+        padding: 0;
+    }
+
+    .main-nav ul {
+        justify-content: center;
+        gap: 20px;
+        font-size: 1.1rem; /* Keeps links big enough to tap with a thumb */
+    }
+
+    /* 4. Cart: Prevent it from being pushed off screen */
+    .cart-icon {
+        font-size: 1.5rem;
+        margin: 10px 0 0 0;
+        flex-shrink: 0;
+    }
+
+    /* 5. Greeting: Keep it hidden to save space */
     #header-greeting {
-        display: none;               /* Removes the greeting on mobile to save space. */
+        display: none; 
     }
     
+    /* 6. Hero Section: Stacks Title and Form */
     .hero-flex-container {
-        flex-direction: column;      /* Stacks Title and Form vertically on mobile. */
-        padding: 20px 15px;          /* Less padding on mobile. */
+        flex-direction: column;
+        padding: 20px 15px;
     }
 
     .hero-section, #subscription-form-container {
-        width: 100%;                 /* Columns take up full width on mobile. */
-        margin-left: 0;              /* Removes the side margin. */
-        margin-bottom: 20px;         /* Adds vertical space between items. */
+        width: 100%; 
+        margin-left: 0;
+        margin-bottom: 30px;
     }
+    /* --- Back to Top Button --- */
+#backToTop {
+    display: none;      /* 🧠 LOGIC: Hidden by default until we scroll */
+    position: fixed;   /* 🧠 LOGIC: Stays in the same spot on the screen */
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;       /* Ensures it sits on top of all other elements */
+    background-color: #1e90ff; /* Matches your brand blue */
+    color: white;
+    border: none;
+    padding: 15px 18px;
+    border-radius: 50%; /* Makes it a circle */
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+}
 
-    .navbar {
-        flex-direction: column;      /* Stacks nav items vertically. */
-        align-items: center;         /* Centers them. */
-        width: 100%;                 /* Full width nav. */
-    }
-    
-    .navbar a {
-        margin: 5px 0;               /* Adds vertical space between links. */
-    }
+#backToTop:hover {
+    background-color: #0d70da;
 }
